@@ -1,28 +1,55 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <!-- <contain></contain>
+    <mixcom></mixcom>
+    <dymic></dymic>
+    <tab></tab> -->
+    <!-- <tabs></tabs> -->
+    <!-- <alive></alive> -->
+    <!-- <h1>{{ aa }}</h1>
+    <api></api> -->
+    <animateCom></animateCom>
   </div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
-
+import contain from "./components/contain/index.vue";
+import mixcom from "./components/mixcom";
+import dymic from "./components/dymic/index.vue";
+import tab from "./components/tab/index.vue";
+import tabs from "@/components/tabs";
+import alive from "@/components/keep-alive";
+import api from "@/components/常用api";
+import animateCom from "@/components/animate/animate.vue";
 export default {
-  name: "App",
+  provide() {
+    return {
+      gift: this.obj.gift,
+    };
+  },
   components: {
-    HelloWorld,
+    contain,
+    mixcom,
+    dymic,
+    tab,
+    tabs,
+    alive,
+    api,
+    animateCom,
+  },
+  data() {
+    return {
+      aa: "app.vue",
+      obj: {
+        gift: "vue",
+      },
+    };
+  },
+  mounted() {
+    console.log(this);
+    setTimeout(() => {
+      this.aa = "喜洋洋";
+    });
   },
 };
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
